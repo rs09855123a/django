@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+        }
+
+        #password-generator {
+            padding: 20px;
+            border-radius: 10px;
+            background-color: tomato;
+            width: 50%;
+            text-align: left;
+            margin: 0 auto;
+            color: white;
+        }
+
+        input[type="submit"] {
+            width: 40%;
+            height: 30px;
+            background-color: greenyellow;
+            margin-top: 20px;
+            margin-left: 30%;
+            margin-right: 30%;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>密碼產生器</h1>
+    <div id="password-generator">
+        <form action="{% url 'password' %}">
+            <label for="length">密碼長度</label>
+            <select name="length" id="length">
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8" selected="selected">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <label for="input-length">自定義長度</label>
+            <input type="number" name="input-length" id="input-length">
+            <br>
+            <input type="checkbox" name="uppercase" id="uppercase"> 大寫
+            <input type="checkbox" name="number" id="number"> 數字
+            <input type="checkbox" name="special" id="special"> 特殊
+            <br>
+
+            <input type="submit" value="產生">
+        </form>
+    </div>
+    {{password}}
+</body>
+
+</html>
